@@ -1,11 +1,11 @@
-import React from 'react'
+import React from 'react';
 
 const DefaultLayout = (props) => {
-    return (
-        <>
-        {props.children}
-        </>
-    )
-}
+  return (
+    <>
+      <h1 className='text-xl'>Dafult Layout page</h1>
+    </>
+  );
+};
 
-export default DefaultLayout
+export default DefaultLayout;
