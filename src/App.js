@@ -1,24 +1,15 @@
 import { Route } from 'react-router-dom';
+import temp from './components/temp';
+import DefaultHOC from './HOC/Default.HOC';
 
-function Name() {
-  return (
-    <>
-      <h1>welcome to home page</h1>
-      <a href='/movie'>Go to movie page</a>
-    </>
-  );
-}
-function Name2() {
-  return <h1>welcome to movie page</h1>;
-}
 
 function App() {
   return (
     <>
-      <Route path='/' component={Name} exact />
-      <Route path='/movie' component={Name2} exact />
+      <DefaultHOC exact component={temp}/>
     </>
   );
 }
 
 export default App;
+  

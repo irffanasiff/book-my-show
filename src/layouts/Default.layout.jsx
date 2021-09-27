@@ -1,9 +1,11 @@
 import React from 'react';
+import NavbarComponents from '../components/Navbar/Navbar.components';
 
 const DefaultLayout = (props) => {
   return (
     <>
-      <h1 className='text-xl'>Dafult Layout page</h1>
+      <NavbarComponents />
+      {props.children}
     </>
   );
 };
