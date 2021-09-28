@@ -1,5 +1,10 @@
 import React from 'react';
-import { BiChevronRight, BiSearch } from 'react-icons/bi';
+import {
+  BiChevronRight,
+  BiChevronDown,
+  BiSearch,
+  BiMenu,
+} from 'react-icons/bi';
 import logo from './masterlogo.png';
 
 const NavSm = () => {
@@ -33,9 +38,9 @@ const NavMd = () => {
 };
 const NavLg = () => {
   return (
-    <div className='w-full'>
-      <div className='flex items-center w-full'>
-        <div className='w-12 h-12'>
+    <div className='container mx-auto px-4 flex items-center justify-between'>
+      <div className='flex items-center w-1/2'>
+        <div className='w-40 h-auto'>
           <img src={logo} alt='logo' />
         </div>
         <div className='w-full flex items-center bg-white gap-3 px-3 py-2 rounded-sm'>
@@ -45,6 +50,19 @@ const NavLg = () => {
             className='w-full focus:outline-none'
             placeholder='Search for movies, events, plays, sports and activities'
           />
+        </div>
+      </div>
+      <div className='flex items-center gap-3'>
+        <span className='text-gray-400 flex items-center text-4xs hover:text-white cursor-pointer'>
+          Jammu <BiChevronDown />
+        </span>
+        <button className='bg-buttonCol-400 text-white text-sm rounded px-2 py-1'>
+          Sign in
+        </button>
+        <div>
+          <div className='w-8 h-8 text-white'>
+            <BiMenu className='w-full h-full ' />
+          </div>
         </div>
       </div>
     </div>
