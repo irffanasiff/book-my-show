@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import DefaultLayout from '../layouts/Default.layout';
+import MovieLayout from '../layouts/Movie.layout';
 
 const DefaultHOC = ({ component: Component, ...restProperties }) => {
   return (
@@ -8,9 +8,9 @@ const DefaultHOC = ({ component: Component, ...restProperties }) => {
       <Route
         {...restProperties}
         component={(props) => (
-          <DefaultLayout>
+          <MovieLayout>
             <Component {...props} />
-          </DefaultLayout>
+          </MovieLayout>    
         )}
       />
     </>
