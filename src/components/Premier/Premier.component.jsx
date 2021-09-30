@@ -12,7 +12,7 @@ export const Premier = () => {
       </div>
       <Slider {...settings}>
         {Images.map((image) => (
-          <Poster {...image} isDark />
+          <Poster {...image} isDark={false} isCircle={true}/>
         ))}
       </Slider>
     </>

@@ -1,13 +1,61 @@
 import React from 'react';
+import Slider from 'react-slick';
+import { settings, Images } from '../components/config';
+import FilmyPass from '../components/FilmyPass/FilmyPass.component.jsx';
+import MovieHero from '../components/MovieHero/MovieHero.component.jsx';
+import Poster from '../components/Poster/Poster.component.jsx';
 
 const Movie = () => {
   return (
     <>
-      <div>
-        <img
-          src='https://images.unsplash.com/photo-1485846234645-a62644f84728?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1159&q=80'
-          alt='Movie'
-        />
+      <MovieHero />
+      <div className='my-12 container mx-auto max-w-full lg:w-1/2 lg:ml-64'>
+        <div className='flex flex-col gap-3'>
+          <h2 className='text-grey-800 font-bold text-2xl'>
+            Lorem ipsum dolor sit.
+          </h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam
+            expedita assumenda dolores eum quaerat molestias ut reiciendis
+            deleniti nemo distinctio velit nulla, sint eligendi, accusamus,
+            possimus sunt ipsum architecto dolorem!
+          </p>
+        </div>
+
+        <div className='my-8'>
+          <hr />
+        </div>
+
+        <div>
+          <h1 className='text-2xl font-bold mb-4'>Applicable offers</h1>
+          <FilmyPass />
+        </div>
+
+        <div className='my-8'>
+          <hr />
+        </div>
+
+        <div>
+          <h1 className='text-2xl font-bold mb-4'>Cast</h1>
+          <Slider {...settings}>
+            {Images.map((image) => (
+              <Poster {...image} isDark={false} />
+            ))}
+          </Slider>
+        </div>
+
+        <div className='my-8'>
+          <hr />
+        </div>
+
+        <div>
+          <h1 className='text-2xl font-bold mb-4'>Crew</h1>
+          <Slider {...settings}>
+            {Images.map((image) => (
+              <Poster {...image} isDark={false} isCircle={true}/>
+            ))}
+          </Slider>
+        </div>
       </div>
     </>
   );
