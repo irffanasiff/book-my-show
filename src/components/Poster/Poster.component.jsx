@@ -5,7 +5,7 @@ const Poster = (props) => {
     <>
       <div
         className={`flex flex-col  gap-2 px-2  ${
-          props.isCircle ? 'item-center ' : 'items-start'
+          props.isCircle ? 'item-center max-w-max ' : 'items-start'
         } `}
       >
         <div className={`${props.isCircle ? 'h-40' : 'h-80'} `}>

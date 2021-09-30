@@ -39,7 +39,7 @@ const Movie = () => {
           <h1 className='text-2xl font-bold mb-4'>Cast</h1>
           <Slider {...settings}>
             {Images.map((image) => (
-              <Poster {...image} isDark={false} />
+              <Poster {...image} isDark={false}  isCircle={true} />
             ))}
           </Slider>
         </div>
