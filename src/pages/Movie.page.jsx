@@ -5,6 +5,7 @@ import FilmyPass from '../components/FilmyPass/FilmyPass.component.jsx';
 import MovieHero from '../components/MovieHero/MovieHero.component.jsx';
 import Poster from '../components/Poster/Poster.component.jsx';
 
+
 const Movie = () => {
   return (
     <>
@@ -39,7 +40,7 @@ const Movie = () => {
           <h1 className='text-2xl font-bold mb-4'>Cast</h1>
           <Slider {...settings}>
             {Images.map((image) => (
-              <Poster {...image} isDark={false}  isCircle={true} />
+              <Poster {...image} isDark={false} isCircle={true} />
             ))}
           </Slider>
         </div>
@@ -52,7 +53,7 @@ const Movie = () => {
           <h1 className='text-2xl font-bold mb-4'>Crew</h1>
           <Slider {...settings}>
             {Images.map((image) => (
-              <Poster {...image} isDark={false} isCircle={true}/>
+              <Poster {...image} isDark={false} isCircle={true} />
             ))}
           </Slider>
         </div>

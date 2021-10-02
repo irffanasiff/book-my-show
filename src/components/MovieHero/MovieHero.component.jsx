@@ -1,5 +1,25 @@
 import React from 'react';
 import { BsFillHeartFill } from 'react-icons/bs';
+import logo from './favicon.png'
+
+const launchRazorPay = () => {
+  let options = {
+    key: 'rzp_test_v8WFeRTfRsPBvp',
+    amount: 500,
+    currency: 'INR',
+    name: 'Book My Show',
+    desciption: 'Movie Purchase on Rental',
+    image: {logo},
+    handler: () => {
+      alert('Payment Done');
+    },
+   theme: { color: '#F24848' },
+  };
+
+  let rzp = new window.Razorpay(options);
+  rzp.open();
+};
+
 const MovieHero = () => {
   return (
     <>
@@ -59,7 +79,10 @@ const MovieHero = () => {
                 Hollywood
               </button>
             </div>
-            <button className='bg-buttonCol-400 text-white text-xl rounded px-2 py-3 my-4 mx-4 max-w-max'>
+            <button
+              onClick={launchRazorPay}
+              className='bg-buttonCol-400 text-white text-xl rounded px-2 py-3 my-4 mx-4 max-w-max'
+            >
               Book Tickets
             </button>
           </div>
