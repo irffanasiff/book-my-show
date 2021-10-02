@@ -92,7 +92,3 @@ const PlaysPage = () => {
 
 export default PlaysPage;
 
-// 707bd4b8b3d2d5833e324e5e0ef49eb2
-// Api key
-// https://api.themoviedb.org/3/movie/550?api_key=707bd4b8b3d2d5833e324e5e0ef49eb2
-// yJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3MDdiZDRiOGIzZDJkNTgzM2UzMjRlNWUwZWY0OWViMiIsInN1YiI6IjYxNTU3Y2FkNDE0NjVjMDA4ZDAxNjIyYiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.QFFqKLB3pBbhGdtOd1b-Up-StlgXlx_BpRDUOsFrWFk
