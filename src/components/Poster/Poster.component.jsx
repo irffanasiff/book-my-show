@@ -11,8 +11,8 @@ const Poster = (props) => {
         <div className={`${props.isCircle ? 'h-40' : 'h-80'} `}>
           <img
             key={props.alt}
-            src={props.src}
-            alt={props.title}
+            src={`http://image.tmdb.org/t/p/original${props.poster_path}`}
+            alt={props.original_title}
             className={`${
               props.isCircle
                 ? 'rounded-full h-40 w-40 flex items-center justify-center'

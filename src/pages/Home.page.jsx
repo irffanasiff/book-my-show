@@ -1,10 +1,21 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import EntertainmentCardSlider from '../components/Entertainment/Entertainmentcard.component.jsx';
 import Premier from '../components/Premier/Premier.component.jsx';
 import PosterSlider from '../components/PosterSlider/PosterSlider.component.jsx';
 import { Images } from '../components/config';
+import axios from 'axios';
 
 const HomePage = () => {
+  const [popularMovies, setPopularMovies] = useState([]);
+
+  useEffect(() => {
+    const requestPopularMovies = async () => {
+      const getPopularMovies = await axios.get('/movie/popular');
+      setPopularMovies(getPopularMovies.data.results);
+    };
+    requestPopularMovies();
+  }, []);
+
   return (
     <>
       <div className='flex flex-col gap-10'>
@@ -25,7 +36,7 @@ const HomePage = () => {
               />
             </div>
             <PosterSlider
-              images={Images}
+              images={popularMovies}
               title='Premiers'
               subtitle='Brand New re;ease every friday'
               isDark={true}
