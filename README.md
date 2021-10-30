@@ -1,6 +1,6 @@
 # Book-My-Show (Clone) 🎬
 
-Clone for Book My Show ( online movie tickets booking site ) built with ReactJS
+Clone for Book My Show ( online movie tickets booking website ) built with ReactJS
 
 ## Table of Contents
 
