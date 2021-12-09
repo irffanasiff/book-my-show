@@ -7,13 +7,20 @@ import axios from 'axios';
 
 const HomePage = () => {
   const [popularMovies, setPopularMovies] = useState([]);
+  const [upcommingMovies, setUpcommingMovies] = useState([]);
 
   useEffect(() => {
     const requestPopularMovies = async () => {
       const getPopularMovies = await axios.get('/movie/popular');
-      setPopularMovies(getPopularMovies.data.results);
+      console.log('PM', getPopularMovies.data.results);
     };
     requestPopularMovies();
+    const requestUpcommingMovies = async () => {
+      const getUpcommingMovies = await axios.get('/movie/upcoming');
+      setUpcommingMovies(getUpcommingMovies.data.results);
+    };
+    requestUpcommingMovies();
+    
   }, []);
 
   return (
@@ -36,9 +43,9 @@ const HomePage = () => {
               />
             </div>
             <PosterSlider
-              images={popularMovies}
+              images={popularMovies} //popular movies array
               title='Premiers'
-              subtitle='Brand New re;ease every friday'
+              subtitle='Brand New release every friday'
               isDark={true}
             />
           </div>
@@ -46,9 +53,9 @@ const HomePage = () => {
       </div>
       <div className='container mx-auto px-4'>
         <PosterSlider
-          images={Images}
-          title='Online Streaming Events'
-          subtitle=''
+          images={upcommingMovies}
+          title='Upcomming Movies'
+          subtitle='Movies Yet to Come'
           isDark={false}
         />
       </div>

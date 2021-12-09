@@ -5,6 +5,7 @@ import Slider from 'react-slick';
 
 // images,title,subtitle
 const PosterSlider = (props) => {
+
   return (
     <>
       <div className='flex flex-col items-start py-4'>

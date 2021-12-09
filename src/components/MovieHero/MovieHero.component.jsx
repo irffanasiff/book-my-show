@@ -1,6 +1,10 @@
+import axios from 'axios';
 import React from 'react';
+import { useEffect } from 'react';
+import { useState } from 'react';
 import { BsFillHeartFill } from 'react-icons/bs';
-import logo from './favicon.png'
+import logo from './favicon.png';
+
 
 const launchRazorPay = () => {
   let options = {
@@ -9,32 +13,27 @@ const launchRazorPay = () => {
     currency: 'INR',
     name: 'Book My Show',
     desciption: 'Movie Purchase on Rental',
-    image: {logo},
+    image: { logo },
     handler: () => {
       alert('Payment Done');
     },
-   theme: { color: '#F24848' },
+    theme: { color: '#F24848' },
   };
 
   let rzp = new window.Razorpay(options);
   rzp.open();
 };
 
-const MovieHero = () => {
+const MovieHero = (props) => {
+
   return (
     <>
       <div className='md:hidden'>
-        <img
-          src='https://in.bmscdn.com/iedb/movies/images/mobile/listing/xxlarge/shang-chi-and-the-legend-of-the-ten-rings-et00122566-24-08-2021-02-01-36.jpg'
-          alt='poster'
-        />
+        <img src={`http://image.tmdb.org/t/p/${props.backdrop_path}`} alt='poster' />
       </div>
 
       <div className='hidden md:block lg:hidden'>
-        <img
-          src='https://in.bmscdn.com/iedb/movies/images/mobile/listing/xxlarge/shang-chi-and-the-legend-of-the-ten-rings-et00122566-24-08-2021-02-01-36.jpg'
-          alt='poster'
-        />
+        <img src={`http://image.tmdb.org/t/p/${props.backdrop_path}`} alt='poster' />
       </div>
 
       <div className='relative hidden lg:block' style={{ height: '40rem' }}>
@@ -48,7 +47,7 @@ const MovieHero = () => {
         <div className='absolute z-30 left-64 top-10 flex items-start'>
           <div className=''>
             <img
-              src='https://in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/shang-chi-and-the-legend-of-the-ten-rings-et00122566-24-08-2021-02-01-36.jpg'
+              src={`http://image.tmdb.org/t/p/${props.poster_path}`}
               alt='poster'
               className='h-full w-full rounded-xl'
             />
@@ -88,7 +87,7 @@ const MovieHero = () => {
           </div>
         </div>
         <img
-          src='https://in.bmscdn.com/iedb/movies/images/mobile/listing/xxlarge/shang-chi-and-the-legend-of-the-ten-rings-et00122566-24-08-2021-02-01-36.jpg'
+          src={props.backdrop_path}
           alt='poster'
           className='w-full h-full'
         />

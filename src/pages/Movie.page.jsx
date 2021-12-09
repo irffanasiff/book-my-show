@@ -1,15 +1,28 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useState, useEffect } from 'react';
 import Slider from 'react-slick';
 import { settings, Images } from '../components/config';
 import FilmyPass from '../components/FilmyPass/FilmyPass.component.jsx';
 import MovieHero from '../components/MovieHero/MovieHero.component.jsx';
 import Poster from '../components/Poster/Poster.component.jsx';
 
-
 const Movie = () => {
+  const [moviedata, setMoviedata] = useState([]);
+  const movie_path = window.location.pathname;
+  useEffect(() => {
+    const callfunction = async () => {
+      const getMovieName = await axios.get(`${movie_path}`);
+      setMoviedata(getMovieName.data.results);
+    };
+    callfunction();
+  }, []);
+
   return (
     <>
-      <MovieHero />
+      <MovieHero
+        backdrop_path={moviedata.backdrop_path}
+        poster_path={moviedata.poster_path}
+      />
       <div className='my-12 container mx-auto max-w-full lg:w-1/2 lg:ml-64'>
         <div className='flex flex-col gap-3'>
           <h2 className='text-grey-800 font-bold text-2xl'>
@@ -52,7 +65,7 @@ const Movie = () => {
         <div>
           <h1 className='text-2xl font-bold mb-4'>Crew</h1>
           <Slider {...settings}>
-            {Images.map((image) => (
+            {moviedata.map((image) => (
               <Poster {...image} isDark={false} isCircle={true} />
             ))}
           </Slider>
