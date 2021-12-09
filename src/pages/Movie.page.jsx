@@ -8,19 +8,25 @@ import Poster from '../components/Poster/Poster.component.jsx';
 
 const Movie = () => {
   const [moviedata, setMoviedata] = useState([]);
-  const movie_path = window.location.pathname;
+  var pathArray = window.location.pathname.split('/');
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const movie_path = pathArray[2];
+  // const movie_path = (thePath) =>
+  //   thePath.substring(thePath.lastIndexOf('/') + 1);
+
   useEffect(() => {
     const callfunction = async () => {
-      const getMovieName = await axios.get(`${movie_path}`);
-      setMoviedata(getMovieName.data.results);
+      await console.log((await axios.get(`${movie_path}`)).data);
+      // const getMovieName = await axios.get(`${movie_path}`);
+      // setMoviedata(getMovieName.data.results);
     };
     callfunction();
-  }, []);
+  }, [movie_path]);
 
   return (
     <>
       <MovieHero
-        backdrop_path={moviedata.backdrop_path}
+        backdrop_path={moviedata.poster_path}
         poster_path={moviedata.poster_path}
       />
       <div className='my-12 container mx-auto max-w-full lg:w-1/2 lg:ml-64'>
